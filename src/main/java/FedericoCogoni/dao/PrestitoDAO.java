@@ -22,4 +22,18 @@ public class PrestitoDAO {
             System.out.println((e.getMessage()));
         }
     }
+
+    public void deleteById (String id) {
+        try {
+            if (id != null) {
+                EntityTransaction tx = em.getTransaction();
+                tx.begin();
+                Prestito prestito = em.find(Prestito.class, id);
+                em.remove(prestito);
+                tx.commit();
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

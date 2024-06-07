@@ -11,10 +11,10 @@ import java.util.List;
 public abstract class ElementoCatalogo {
     @Id
     //@Column(nullable = false) in questo caso, stiamo riempiendo noi il db quindi non ha senso inserire il
-    //nullable. Nel caso di inserimento dei dati da parte di un utente x, lo inserirei.
+    //nullable. Nel caso di un inserimento dei dati da parte di un utente x, lo inserirei.
     protected String isbn;
     protected String titolo;
-    protected LocalDate anno_di_pubblicazione;
+    protected int anno_di_pubblicazione;
     protected int numero_pagine;
 
     @OneToMany(mappedBy = "elementoCatalogo")
@@ -22,7 +22,7 @@ public abstract class ElementoCatalogo {
 
     public ElementoCatalogo(){}
 
-    public ElementoCatalogo(String isbn, String titolo, LocalDate anno_di_pubblicazione, int numero_pagine) {
+    public ElementoCatalogo(String isbn, String titolo, int anno_di_pubblicazione, int numero_pagine) {
         this.isbn = isbn;
         this.titolo = titolo;
         this.anno_di_pubblicazione = anno_di_pubblicazione;
@@ -41,11 +41,11 @@ public abstract class ElementoCatalogo {
         isbn = isbn;
     }
 
-    public LocalDate getAnno_di_pubblicazione() {
+    public int getAnno_di_pubblicazione() {
         return anno_di_pubblicazione;
     }
 
-    public void setAnno_di_pubblicazione(LocalDate anno_di_pubblicazione) {
+    public void setAnno_di_pubblicazione(int anno_di_pubblicazione) {
         this.anno_di_pubblicazione = anno_di_pubblicazione;
     }
 

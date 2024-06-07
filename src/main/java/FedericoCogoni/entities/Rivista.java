@@ -20,7 +20,7 @@ public class Rivista extends ElementoCatalogo{
         this.periodicità = periodicità;
     }
 
-    public Rivista(String isbn, String titolo, LocalDate anno_di_pubblicazione, int numero_pagine, Periodicità periodicità) {
+    public Rivista(String isbn, String titolo, int anno_di_pubblicazione, int numero_pagine, Periodicità periodicità) {
         super(isbn, titolo, anno_di_pubblicazione, numero_pagine);
         this.periodicità = periodicità;
     }
