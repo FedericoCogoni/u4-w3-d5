@@ -62,7 +62,8 @@ public class Application {
         utenteDAO.save(utente2);
         utenteDAO.save(utente3); */
 
-        prestitoDAO.findByIdTessera(UUID.fromString("e2273039-56f2-480d-bc2e-433a3188f319")).forEach(System.out::println);
+       // prestitoDAO.findByIdTessera(UUID.fromString("e2273039-56f2-480d-bc2e-433a3188f319")).forEach(System.out::println);
+        prestitoDAO.findPrestitiScaduti().forEach(System.out::println);
 
         entityManager.close();
         emf.close();
