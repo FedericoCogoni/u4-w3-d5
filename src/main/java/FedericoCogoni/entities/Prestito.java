@@ -23,10 +23,12 @@ public class Prestito {
 
     public Prestito () {}
 
-    public Prestito(LocalDate inizio_prestito, LocalDate data_restituzione_prevista, LocalDate data_restituzione_effettiva) {
+    public Prestito(LocalDate inizio_prestito, LocalDate data_restituzione_prevista, LocalDate data_restituzione_effettiva, Utente utente, ElementoCatalogo elementoCatalogo) {
         this.inizio_prestito = inizio_prestito;
         this.data_restituzione_prevista = data_restituzione_prevista;
         this.data_restituzione_effettiva = data_restituzione_effettiva;
+        this.utente = utente;
+        this.elementoCatalogo = elementoCatalogo;
     }
 
     public UUID getId() {

@@ -5,6 +5,8 @@ import FedericoCogoni.entities.Utente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.UUID;
+
 public class UtenteDAO {
     private final EntityManager em;
     public UtenteDAO(EntityManager em) {
@@ -21,5 +23,19 @@ public class UtenteDAO {
         } catch (Exception e) {
             System.out.println((e.getMessage()));
         }
+
+    }
+
+    public Utente findById(UUID id_tessera) {
+        try {
+            if (id_tessera != null) {
+
+                Utente utente = em.find(Utente.class, id_tessera);
+                return utente;
+            }
+        } catch (Exception e) {
+            System.out.println((e.getMessage()));
+        }
+        return null;
     }
 }

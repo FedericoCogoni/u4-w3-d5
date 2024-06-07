@@ -4,6 +4,7 @@ import FedericoCogoni.dao.ElementoCatalogoDAO;
 import FedericoCogoni.dao.PrestitoDAO;
 import FedericoCogoni.dao.UtenteDAO;
 import FedericoCogoni.entities.Libro;
+import FedericoCogoni.entities.Prestito;
 import FedericoCogoni.entities.Rivista;
 import FedericoCogoni.entities.Utente;
 import FedericoCogoni.enums.Periodicità;
@@ -12,6 +13,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("u4-w3-d5");
@@ -35,8 +37,22 @@ public class Application {
         Utente utente2 = new Utente("utentenome2", "utentecognome2", LocalDate.of(1986, 8, 8));
         Utente utente3 = new Utente("utentenome3", "utentecognome3", LocalDate.of(1990, 1, 3));
 
+        Utente utente1fromDB = utenteDAO.findById(UUID.fromString("d34655c1-2c73-4ee1-8d72-d0477acb0585"));
+        Libro libro1fromDB = (Libro) elementoCatalogoDAO.findById("978-3-16-148410-0");
+        Utente utente2fromDB = utenteDAO.findById(UUID.fromString("e2273039-56f2-480d-bc2e-433a3188f319"));
+        Libro libro2fromDB = (Libro) elementoCatalogoDAO.findById("978-1-86197-876-9");
+        Utente utente3fromDB = utenteDAO.findById(UUID.fromString("c37cf773-beb7-4851-ae21-adc0bc0c0ed5"));
+        Libro libro3fromDB = (Libro) elementoCatalogoDAO.findById("978-0-7432-7356-5");
 
-       /* elementoCatalogoDAO.save(libro1);
+        Prestito prestito1 = new Prestito(LocalDate.now(), LocalDate.now().plusDays(45),null, utente1fromDB, libro1fromDB);
+        Prestito prestito2 = new Prestito(LocalDate.of(2024, 5, 5), LocalDate.of(2024, 5, 5).plusDays(45),null, utente2fromDB, libro2fromDB);
+        Prestito prestito3 = new Prestito(LocalDate.of(2024, 2, 15), LocalDate.of(2024, 2, 15).plusDays(45), LocalDate.of(2024, 3, 3), utente3fromDB, libro3fromDB);
+
+        /* prestitoDAO.save(prestito1);
+        prestitoDAO.save(prestito2);
+        prestitoDAO.save(prestito3);
+
+        elementoCatalogoDAO.save(libro1);
         elementoCatalogoDAO.save(libro2);
         elementoCatalogoDAO.save(libro3);
         elementoCatalogoDAO.save(rivista1);
@@ -44,10 +60,11 @@ public class Application {
         elementoCatalogoDAO.save(rivista3);
         utenteDAO.save(utente1);
         utenteDAO.save(utente2);
-        utenteDAO.save(utente3);
-        entityManager.close();
-        emf.close(); */
+        utenteDAO.save(utente3); */
 
-        P
+
+        entityManager.close();
+        emf.close();
+
     }
 }
