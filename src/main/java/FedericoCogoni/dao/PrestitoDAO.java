@@ -4,6 +4,10 @@ import FedericoCogoni.entities.ElementoCatalogo;
 import FedericoCogoni.entities.Prestito;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
+import java.util.UUID;
 
 public class PrestitoDAO {
     private final EntityManager em;
@@ -35,5 +39,12 @@ public class PrestitoDAO {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+    }
+
+    public List<Prestito> findByIdTessera (UUID id) {
+        TypedQuery<Prestito> query = em.createQuery(
+                "SELECT p FROM Prestito p WHERE p.utente.id_tessera = :id_tessera AND p.data_restituzione_effettiva IS NULL", Prestito.class);
+                query.setParameter("id_tessera", id);
+                return query.getResultList();
     }
 }
