@@ -59,7 +59,7 @@ public class ElementoCatalogoDAO {
     public List<ElementoCatalogo> findByAnnoDiPubblicazione (int anno_di_pubblicazione) {
         try {
             TypedQuery<ElementoCatalogo> query = em.createQuery(
-                    "SELECT e FROM ElementoCatalogo e WHERE e.annoDiPubblicazione = :anno", ElementoCatalogo.class);
+                    "SELECT e FROM ElementoCatalogo e WHERE e.anno_di_pubblicazione = :anno", ElementoCatalogo.class);
             query.setParameter("anno", anno_di_pubblicazione);
             return query.getResultList();
         } catch (Exception e) {

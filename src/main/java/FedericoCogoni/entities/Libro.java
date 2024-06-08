@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "libri")
+//@Table(name = "libri")
 public class Libro extends ElementoCatalogo{
 
     private String autore;

@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "riviste")
+//@Table(name = "riviste")
 public class Rivista extends ElementoCatalogo{
     @Enumerated(EnumType.STRING)
     private Periodicità periodicità;

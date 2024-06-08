@@ -7,7 +7,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "elementi_del_catalogo")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class ElementoCatalogo {
     @Id
     //@Column(nullable = false) in questo caso, stiamo riempiendo noi il db quindi non ha senso inserire il
